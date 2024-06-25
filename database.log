@@ -41,3 +41,8 @@
 1719319041465|0|statement|select * from "public"."ecole" where 1=0
 1719319041483|0|statement|select * from "public"."etudiant" where 1=0
 1719319041488|0|statement|select * from "public"."projet" where 1=0
+1719319824520|20|statement|select * from information_schema.sequences
+1719319824584|1|statement|select * from "public"."adresse" where 1=0
+1719319824601|0|statement|select * from "public"."ecole" where 1=0
+1719319824616|0|statement|select * from "public"."etudiant" where 1=0
+1719319824623|2|statement|select * from "public"."projet" where 1=0
