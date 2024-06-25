@@ -16,8 +16,10 @@ public class ProjetController {
     private ProjetService projetService;
 
     @GetMapping
-    public ResponseEntity<List<ProjetDto>> findAll() {
-        return ResponseEntity.ok(projetService.findAll());
+    public ResponseEntity<List<ProjetDto>> findAll(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size) {
+        return ResponseEntity.ok(projetService.findAll(page, size));
     }
 
     @GetMapping("/{id}")

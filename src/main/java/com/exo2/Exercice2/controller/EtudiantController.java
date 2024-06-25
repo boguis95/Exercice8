@@ -17,11 +17,11 @@ public class EtudiantController {
     private EtudiantService etudiantService;
 
     @GetMapping
-    public ResponseEntity<List<EtudiantDto>> findAll()
-    {
-        return ResponseEntity.ok(etudiantService.findAll());
+    public ResponseEntity<List<EtudiantDto>> findAll(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size) {
+        return ResponseEntity.ok(etudiantService.findAll(page, size));
     }
-
     @GetMapping("/{id}")
     public ResponseEntity<EtudiantDto> findById(@PathVariable Long id)
     {

@@ -21,9 +21,10 @@ public class AdresseController {
     }
 
     @GetMapping
-    public ResponseEntity<List<AdresseDto>> findAll()
-    {
-        return ResponseEntity.ok(adresseService.findAll());
+    public ResponseEntity<List<AdresseDto>> findAll(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size) {
+        return ResponseEntity.ok(adresseService.findAll(page, size));
     }
 
     @GetMapping("/findBy")

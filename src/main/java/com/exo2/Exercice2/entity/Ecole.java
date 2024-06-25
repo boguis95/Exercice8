@@ -4,7 +4,9 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.BatchSize;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -25,7 +27,8 @@ public class Ecole {
     private String domaine;
 
     @OneToMany(mappedBy = "ecole", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Etudiant> etudiants;
+    @BatchSize(size = 10) // Charger les étudiants par lots de 10 pour réduire les requêtes
+    private List<Etudiant> etudiants = new ArrayList<>();
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "adresse_id")

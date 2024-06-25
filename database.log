@@ -1,0 +1,43 @@
+1719317734620|8|statement|select * from information_schema.sequences
+1719317734677|16|statement|     create table adresse (         adresse_id bigserial not null,         code_postal integer not null,         complement_adresse varchar(255),         ville varchar(255),         primary key (adresse_id)     )
+1719317734681|3|statement|     create table ecole (         ecole_id bigserial not null,         domaine_ecole varchar(50) not null,         nom_ecole varchar(50) not null,         adresse_id bigint,         primary key (ecole_id)     )
+1719317734685|3|statement|     create table etudiant (         etudiant_id bigserial not null,         nom varchar(50) not null,         prenom varchar(50) not null,         ecole_id bigint,         primary key (etudiant_id)     )
+1719317734687|0|statement|     create table etudiant_projet (         projet_id bigint not null,         etudiant_id bigint not null     )
+1719317734689|1|statement|     create table projet (         projet_id bigserial not null,         nom_projet varchar(255),         primary key (projet_id)     )
+1719317734691|1|statement|     create index idx_ville         on adresse (ville)
+1719317734693|0|statement|     create index idx_codePostal         on adresse (code_postal)
+1719317734695|1|statement|     alter table if exists ecole         drop constraint if exists UK_1gdq2wbxry0ag0jo42plogwfh
+1719317734697|1|statement|     alter table if exists ecole         add constraint UK_1gdq2wbxry0ag0jo42plogwfh unique (adresse_id)
+1719317734704|6|statement|     alter table if exists ecole         add constraint FK9ifsc3vh952adidu8vjqv5qx3         foreign key (adresse_id)         references adresse
+1719317734710|4|statement|     alter table if exists etudiant         add constraint FKmvneq4dvp0lioe8nmuieuw44j         foreign key (ecole_id)         references ecole
+1719317734712|2|statement|     alter table if exists etudiant_projet         add constraint FKm8flcm377tl2u6v4xaaworkse         foreign key (etudiant_id)         references etudiant
+1719317734715|2|statement|     alter table if exists etudiant_projet         add constraint FK8cft2abbt0kpxr35e3f706w81         foreign key (projet_id)         references projet
+1719318261167|20|statement|select * from information_schema.sequences
+1719318261239|1|statement|select * from "public"."adresse" where 1=0
+1719318261258|0|statement|select * from "public"."ecole" where 1=0
+1719318261270|0|statement|select * from "public"."etudiant" where 1=0
+1719318261274|0|statement|select * from "public"."projet" where 1=0
+1719318263415|0|rollback|
+1719318574038|13|statement|select * from information_schema.sequences
+1719318574093|0|statement|select * from "public"."adresse" where 1=0
+1719318574111|0|statement|select * from "public"."ecole" where 1=0
+1719318574144|0|statement|select * from "public"."etudiant" where 1=0
+1719318574150|0|statement|select * from "public"."projet" where 1=0
+1719318576179|0|rollback|
+1719318829464|39|statement|select * from information_schema.sequences
+1719318829519|2|statement|select * from "public"."adresse" where 1=0
+1719318829536|0|statement|select * from "public"."ecole" where 1=0
+1719318829550|0|statement|select * from "public"."etudiant" where 1=0
+1719318829554|0|statement|select * from "public"."projet" where 1=0
+1719318831602|0|rollback|
+1719318935689|12|statement|select * from information_schema.sequences
+1719318935739|1|statement|select * from "public"."adresse" where 1=0
+1719318935759|0|statement|select * from "public"."ecole" where 1=0
+1719318935771|0|statement|select * from "public"."etudiant" where 1=0
+1719318935775|0|statement|select * from "public"."projet" where 1=0
+1719318938029|0|rollback|
+1719319041362|21|statement|select * from information_schema.sequences
+1719319041444|1|statement|select * from "public"."adresse" where 1=0
+1719319041465|0|statement|select * from "public"."ecole" where 1=0
+1719319041483|0|statement|select * from "public"."etudiant" where 1=0
+1719319041488|0|statement|select * from "public"."projet" where 1=0

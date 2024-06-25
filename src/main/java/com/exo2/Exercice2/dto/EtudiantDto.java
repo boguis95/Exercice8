@@ -15,5 +15,7 @@ public class EtudiantDto {
     private Long id;
     private String nom;
     private String prenom;
+    private String ecole;
     List<ProjetDto> projets;
+
 }

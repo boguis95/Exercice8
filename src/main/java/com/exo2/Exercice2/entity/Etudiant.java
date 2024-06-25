@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.BatchSize;
 
 import java.util.List;
 
@@ -20,14 +21,18 @@ public class Etudiant {
 
     @Column(nullable = false, length = 50)
     private String nom;
+
     @Column(nullable = false, length = 50)
     private String prenom;
 
+    // FetchType.LAZY pour éviter de charger inutilement l'école
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ecole_id")
     private Ecole ecole;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(name = "etudiant_projet", joinColumns = @JoinColumn(name = "etudiant_id"), inverseJoinColumns = @JoinColumn(name = "projet_id"))
+    // Charger les projets par lots de 10 pour réduire les requêtes
+    @BatchSize(size = 10)
     private List<Projet> projets;
 }
